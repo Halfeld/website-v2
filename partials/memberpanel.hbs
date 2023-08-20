@@ -18,31 +18,33 @@
 	</aside>
 </div>
 
-{{#if @labs.members}}
-	<div class="subscribe-overlay">
-		<div class="icon-nav">
-			{{#if @member}}
-				<span class="member-singin"><a href="javascript:" data-members-signout>Sign out</a></span>
-				<span class="member-signup" style="cursor: pointer" data-portal="account">Account</a></span>
-				<i class="material-icons">login</i>
-			{{else}}
-				<span class="member-singin" style="cursor: pointer" data-portal="signin">Sign in</a></span>
-				<span class="member-signup" style="cursor: pointer" data-portal="signup">Subscribe</a></span>
-				<i class="material-icons">mail_outline</i>
-			{{/if}}
-		</div>
+{{#if @site.members_enabled}}
+<div class="subscribe-overlay">
+	<div class="icon-nav">
+		{{#if @member}}
+		<span class="member-singin"><a href="javascript:" data-members-signout>Sign out</a></span>
+		<span class="member-signup" style="cursor: pointer" data-portal="account">Account</a></span>
+		<i class="material-icons">login</i>
+		{{else}}
+		<span class="member-singin" style="cursor: pointer" data-portal="signin">Sign in</a></span>
+		<span class="member-signup" style="cursor: pointer" data-portal="signup">Subscribe</a></span>
+		<i class="material-icons">mail_outline</i>
+		{{/if}}
 	</div>
+</div>
 {{else}}
-	<ul class="icon-header-social">
-		{{#if @site.twitter}}
-		<li class="nav-social nav-social-tw">
-			<a class="social-link social-link-tw" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">Twitter</a>
-		</li>
-		{{/if}}
-		{{#if @site.facebook}}
-		<li class="nav-social nav-social-fb">
-			<a class="social-link social-link-fb" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">Facebook</a>
-		</li>
-		{{/if}}
-	</ul>
+<ul class="icon-header-social">
+	{{#if @site.twitter}}
+	<li class="nav-social nav-social-tw">
+		<a class="social-link social-link-tw" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank"
+			rel="noopener">Twitter</a>
+	</li>
+	{{/if}}
+	{{#if @site.facebook}}
+	<li class="nav-social nav-social-fb">
+		<a class="social-link social-link-fb" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank"
+			rel="noopener">Facebook</a>
+	</li>
+	{{/if}}
+</ul>
 {{/if}}
