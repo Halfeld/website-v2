@@ -16,21 +16,23 @@
 	<main class="main-inner clearfix">
 	{{#post}}
 		<article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting">
-			<ul class="post-header">
-				<li class="section post-title" itemprop="name">
-					<h1 class="title">
-						{{title}}
-					</h1>
-				</li>
-				<li class="post-meta">
-					<span class="meta-date">{{date format='MMM Do, YYYY'}}</span>
-				</li>
-				{{#if custom_excerpt}}
-				<li class="post-full-custom-excerpt">
-					<p>{{custom_excerpt}}</p>
-				</li>
-				{{/if}}
-			</ul>
+			{{#match @page.show_title_and_feature_image}}
+				<ul class="post-header">
+					<li class="section post-title" itemprop="name">
+						<h1 class="title">
+							{{title}}
+						</h1>
+					</li>
+					<li class="post-meta">
+						<span class="meta-date">{{date format='MMM Do, YYYY'}}</span>
+					</li>
+					{{#if custom_excerpt}}
+					<li class="post-full-custom-excerpt">
+						<p>{{custom_excerpt}}</p>
+					</li>
+					{{/if}}
+				</ul>
+    	{{/match}}
 
 			{{#if feature_image}}
 			<div class="post-cover">
