@@ -17,7 +17,7 @@
 			{{#foreach posts visibility="all"}}
 			<article id="post-{{id}}" class="{{post_class}} clearfix" itemscope
 				itemtype="http://schema.org/BlogPosting">
-				<div class="post-cover{{^if feature_image}} no-cover{{/if}}" itemprop="image"
+				<div id="post-image-{{id}}" class="post-cover{{^if feature_image}} no-cover{{/if}}" itemprop="image"
 					content="{{img_url feature_image}}">
 					<ul class="post-header">
 						<li class="section post-title" itemprop="name">
@@ -51,7 +51,7 @@
 						}
 					}
 
-					.post-cover {
+					#post-image-{{id}} {
 						background-image: url({{img_url feature_image size="l"}});
 					}
 
@@ -61,9 +61,11 @@
 						}
 					}
 
-					:nth-child(3n - 5) .post-cover {
+					/*
+					.post-cover:nth-child(3n - 5) {
 						background-image: url({{img_url feature_image size="xl"}});
 					}
+					*/
 
 					@media screen and (max-width: 640px) {
 						#post- {
@@ -79,7 +81,7 @@
 							}
 						}
 
-						:nth-child(3n - 5) .post-cover {
+						#post-image-{{id}} {
 							background-image: url({{img_url feature_image size="m"}});
 						}
 					}
