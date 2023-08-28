@@ -4,7 +4,7 @@
 		{{#get "posts" limit="2" filter="id:-{{id}}+tag:{{primary_tag.slug}}"}}
 		{{#foreach posts visibility="all"}}
 		<div id="postrelated-{{id}}" class="post-related-item" itemscope itemtype="http://schema.org/BlogPosting">
-			<div class="post-cover{{^if feature_image}} no-cover{{/if}}" itemprop="image"
+			<div id="post-image-{{id}}" class="post-cover{{^if feature_image}} no-cover{{/if}}" itemprop="image"
 				content="{{img_url feature_image}}">
 				<ul class="post-header">
 					<li class="section post-title" itemprop="name">
@@ -28,7 +28,7 @@
 					}
 				}
 
-				.post-cover {
+				#post-image-{{id}} {
 					background-image: url({{img_url feature_image size="l"}});
 				}
 
@@ -38,9 +38,11 @@
 					}
 				}
 
+				/*
 				:nth-child(3n - 5) .post-cover {
 					background-image: url({{img_url feature_image size="xl"}});
 				}
+				*/
 
 				@media screen and (max-width: 640px) {
 					#postrelated- {
@@ -56,7 +58,7 @@
 						}
 					}
 
-					:nth-child(3n - 5) .post-cover {
+					#post-image-{{id}}  {
 						background-image: url({{img_url feature_image size="m"}});
 					}
 				}
